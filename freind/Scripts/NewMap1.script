@@ -1,0 +1,8 @@
+﻿// define permap entry things here, onshot
+// under normal C type langs you INITALIZ vars, but it seem that EFPSE-CE fallows othe scripting langs where they become initalized upon frist use
+// how ever it is good practice to inialize things, to know values....
+global.playerX=0
+global.playerY=0
+global.playerZ=0
+global.freind=0
+global.fbit=0

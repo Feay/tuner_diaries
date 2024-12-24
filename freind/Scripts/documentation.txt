@@ -1,0 +1,6 @@
+to do math you have to use short hand and always save back on to a var to it self
+if you want to  $local.vec_aX+$local.vec_bX, that won't work you must  local.vec_bX-=$local.vec_aX
+which is saying  local.vec_bX=$local.vec_bX-$local.vec_aX
+thus destroying the orginal information.
+local.vec_bX-=$local.vec_aX
+global.bombarezbit=$local.vec_bX

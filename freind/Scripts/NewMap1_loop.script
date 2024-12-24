@@ -1,0 +1,26 @@
+// freind npc fallower example loop, this logic below makes sure the loop ONLY
+// PLEASE NOTE CHECKPOS in the FSM, states file, returns errornious negative value for the Y vector!!! must use ABS else it will mess everything up
+// spawns and deletes our creature once
+if $global.freind == 0 {
+if $global.fbit == 0 {
+global.fbit=1 
+var1=$global.freindX
+var2=ABS($global.freindY)
+var3=$global.freindZ
+entity spawn tile DEC1 $var1 $var2 0
+entity spawn precise DEC1 $global.freindX $global.freindY $global.freindZ
+}
+}
+if $global.freind == 1 {
+if $global.fbit == 1 {
+global.fbit=0
+var1=$global.freindX
+var2=ABS($global.freindY)
+var3=$global.freindZ
+entity delete $var1 $var2 $var3
+}
+}
+
+
+player check position global.playerX global.playerY global.playerZ
+// not nessary for freind example, i just like player pos on hud for debug

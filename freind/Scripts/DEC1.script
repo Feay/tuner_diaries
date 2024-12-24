@@ -1,0 +1,16 @@
+// this is the decor object that gets spawned at the enemy type fallower
+// you cannot currently interact with a enemy type so we do this
+global.dingconvo1++
+if $global.dingconvo1 == 1 {
+// frist time seeing you, set to 1 for no repeat
+text "hello I am a DINGBAT, you seem interesting!"
+map return
+}
+if $global.dingconvo1 <= 2 {
+text "wanna know a secret? ask me later!"
+}
+if $global.dingconvo1 == 3 {
+global.dingconvo1=0
+text "I know nothing"
+entity spawn relative Hp1 1 1 0 
+}
