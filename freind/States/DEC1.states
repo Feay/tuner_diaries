@@ -1,0 +1,15 @@
+image DEC1 0 12
+
+state IDLE NONE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 READY
+
+state SEE CHASE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 READY
+
+state CHASE NONE 0
+frame 1 1 0 0 0 NONE
+frame 2 1 0 0 0 NONE
+frame 3 1 0 0 0 NONE
+frame 4 1 0 0 0 READY

@@ -1,0 +1,60 @@
+image NPC1 0 12
+image Explosion 0 6
+sound Asterisk
+sound NewMail
+
+// idle only happens if never seen player or entiy is stopped at the player
+// else chase loops no matter what always seeking
+state IDLE NONE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 CHECKPOS global.bombaX global.bombaY global.bombaZ 
+// frame 0 0.125 0 0 0 SETVAR global.npc1dis PLAYERDISTANCE
+// player distance is bugged always to high and some times out of range.
+// got player distance, set was gotten in idle
+frame 0 0.125 0 0 0 SETVAR global.npc1toggle 1
+frame 0 0.125 0 0 0 NONE
+frame 0 4.125 0 0 0 READY  
+// last frame is not updated, even if this 4 second delay happens, the prev frame gets sticky
+
+// SEE is only one fire, once enity has seen player it never happens again
+state SEE CHASE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 1 0 0 0 SOUND 0
+frame 0 0.125 0 0 0 READY
+
+state FLEE IDLE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 READY
+
+state CHASE IDLE 0
+frame 1 1 0 0 0 NONE 1
+frame 2 1 0 0 0 NONE 1
+frame 3 1 0 0 0 NONE 1
+frame 0 0.125 0 0 0 JUMPIFGEQUALS PLAYERVISIBLE 0 IDLE
+frame 4 1 0 0 0 READY
+
+state XDEATH IDLE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 READY
+
+// always attacks once time then attack delay takes effect
+//state ATTACK CHASE 0
+//frame 0 0.125 0 0 0 NONE
+//frame 5 0.25 0 0 0 NONE
+//frame 0 1 0 0 0 SOUND 1
+//frame 6 0.0625 0 0 0 NONE
+//frame 6 0.0625 0 0 0 ATTACK
+//frame 5 0.25 0 0 0 NONE
+//frame 5 0.25 0 0 0 READY
+
+state DEATH DEAD 0
+frame 9 0.166 0 0 0 NONE
+frame 0 0.125 0 0 0 NONE
+frame 10 0.166 0 0 0 NONE
+frame 11 0.166 0 0 0 NONE
+
+state DEAD NONE 0
+frame 12 0.125 0 0 0 NONE
+frame 0 1 0 0 0 SOUND 1
+frame 12 0.125 0 0 0 NONE

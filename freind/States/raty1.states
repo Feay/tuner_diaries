@@ -1,0 +1,42 @@
+image raty1 0 12
+image Explosion 0 6
+
+state IDLE NONE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 NONE
+frame 0 4.125 0 0 0 READY  
+// last frame is not updated, even if this 4 second delay happens, the prev frame gets sticky
+
+// SEE is only one fire, once enity has seen player it never happens again
+state SEE FLEE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 NONE  // todo add squeek
+frame 0 0.125 0 0 0 READY
+
+state FLEE IDLE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 READY
+
+//state CHASE IDLE 0
+//frame 1 1 0 0 0 NONE 1
+//frame 2 1 0 0 0 NONE 1
+//frame 3 1 0 0 0 NONE 1
+//frame 0 0.125 0 0 0 JUMPIFGEQUALS PLAYERVISIBLE 0 IDLE
+//frame 4 1 0 0 0 READY
+
+state XDEATH IDLE 0
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 NONE
+frame 0 0.125 0 0 0 READY
+
+
+state DEATH DEAD 0
+frame 9 0.166 0 0 0 NONE
+frame 0 0.125 0 0 0 NONE
+frame 10 0.166 0 0 0 NONE
+frame 11 0.166 0 0 0 NONE
+
+state DEAD NONE 0
+frame 12 0.125 0 0 0 NONE
+frame 0 1 0 0 0 SOUND 1
+frame 12 0.125 0 0 0 NONE

@@ -1,0 +1,15 @@
+key1 0.965 0.01
+key2 0.965 0.06
+key3 0.965 0.11
+hp 0.0125 0.875
+armour 0.25 0.875 1
+ammo 0.8 0.875
+ammoIcon 0.945 0.9
+mag 0.75 0.875
+background 0 0
+foreground 0 0 0
+status 0.406875 0.3833333 left
+variable 0.01 0.75 global.playerX
+variable 0.24 0.75 global.playerY
+variable 0.48 0.75 global.playerZ
+
