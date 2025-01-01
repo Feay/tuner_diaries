@@ -7,8 +7,8 @@ global.fbit=1
 var1=$global.freindX
 var2=ABS($global.freindY)
 var3=$global.freindZ
-entity spawn tile DEC1 $var1 $var2 0
-entity spawn precise DEC1 $global.freindX $global.freindY $global.freindZ
+// entity spawn tile DEC1 $var1 $var2 0
+entity spawn precise DEC1 $var1 $var2 $var3
 }
 }
 if $global.freind == 1 {
