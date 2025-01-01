@@ -1,48 +1,31 @@
 image FREIND1 0 13
 
-// idle only happens if never seen player or entiy is stopped at the player
-state IDLE NONE 0
+// idle only happens if never seen player or entiy is stopped at the player DO NOT PUT COMMENTS BETTWEENN FiRST FRAME AND STATE ENTRY
+state IDLE DEATH 0
+frame 0 0.125 0 0 0 NONE 
+// minumum 0.009 for 120FPS setting will not work with 30FPS
+// 0.01 minium for 30FPS
+frame 0 0.0 0 0 0 NONE
+// this noop frame is nessary added more just incase, i suppose these count as a tick
+frame 0 0.0 0 0 0 NONE
+frame 0 0.0 0 0 0 NONE
+
+// flee one frame to make it walk a lil slower, expiermenting
+state FLEE CHASE 0
+frame 1 0.125 0 0 0 NONE
+
+// SEE is only one fire, once enity has seen player it never happens again
+state CHASE FLEE 0
+frame 4 0.125 0 0 0 NONE
+frame 2 0.125 0 0 0 SETVAR global.freind 1
+frame 3 0.125 0 0 0 NONE
+frame 1 0.125 0 0 0 NONE  // todo add squeek
+frame 4 0.125 0 0 0 NONE
+frame 2 0.125 0 0 0 NONE
+frame 3 0.125 0 0 0 NONE
+
+state DEATH IDLE 0
 frame 0 0.125 0 0 0 NONE
 frame 0 0.125 0 0 0 CHECKPOS global.freindX global.freindY global.freindZ
 frame 0 0.125 0 0 0 SETVAR global.freind 0
-frame 0 0.125 0 0 0 NONE
-frame 0 3.000 0 0 0 NONE 
-
-// SEE only happens once enity has seen player it never happens again
-state SEE CHASE 0
-frame 0 0.125 0 0 0 NONE
-frame 0 1 0 0 0 SOUND 0
-frame 0 0.125 0 0 0 READY
-
-state FLEE IDLE 0
-frame 0 0.125 0 0 0 NONE
-frame 0 0.125 0 0 0 READY
-
-state CHASE XDEATH 0
-frame 1 0.125 0 0 0 NONE
-frame 2 0.125 0 0 0 SETVAR global.freind 1
-frame 3 0.125 0 0 0 NONE
-frame 4 0.125 0 0 0 NONE
-
-state XDEATH IDLE 0
-frame 0 0.125 0 0 0 NONE
-frame 0 0.125 0 0 0 NONE
-
-// always attacks one time then attack delay takes effect
-state ATTACK XDEATH 0
-frame 0 0.125 0 0 0 NONEE
-frame 0 0.25 0 0 0 READY
-
-state HURT FLEE 0
-frame 7 0.166 0 0 0 NONE
-frame 8 0.25 0 0 0 READY
-
-state DEATH DEAD 0
-frame 9 0.166 0 0 0 NONE
-frame 10 0.125 0 0 0 NONE
-frame 11 0.166 0 0 0 NONE
-frame 12 0.166 0 0 0 NONE
-
-state DEAD NONE 0
-frame 13 0.125 0 0 0 NONE
-frame 13 0.125 0 0 0 NONE
+frame 0 2.000 0 0 0 NONE
